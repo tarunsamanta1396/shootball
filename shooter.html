@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>shoot the ball</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container">
+
+
+    <button type="button" name="button" class="startBtn">START GAME</button>
+    <img src="emptyplus.png" alt="crosshair" class="cursor">
+    <img src="gunshot.png" alt="gunshot" class="gunshot">
+
+
+  </div>
+
+  <script>
+    const container = document.querySelector(".container");
+    const gunshot = document.querySelector(".gunshot");
+
+    const ball = document.createElement("img");
+    ball.setAttribute("class", "ball");
+    ball.setAttribute("src", "ball.png");
+
+    const contHeight = container.offsetHeight;
+    const contWidth = container.offsetWidth;
+
+    setInterval(() => {
+      const randTop = Math.random() * (contHeight - 100);
+      const randLeft = Math.random() * (contWidth - 100);
+
+      ball.style.position = "absolute";
+      ball.style.top = randTop + "px";
+      ball.style.left = randLeft + "px";
+    }, 1000);
+
+    let score = 0;
+
+    const startBtn = document.querySelector(".startBtn");
+    startBtn.addEventListener("click", () => {
+      container.appendChild(ball);
+
+      startBtn.innerText = "SCORE: " + score;
+
+
+    });
+
+
+    window.addEventListener("click", (e) => {
+      gunshot.style.top = e.pageY + "px"
+      gunshot.style.left = e.pageX + "px"
+
+
+
+
+
+      if (e.target === ball) score++;
+
+      startBtn.innerText = "SCORE: " + score;
+
+    });
+
+
+
+
+    window.addEventListener("click",(e)=>{
+
+      var sound = new Audio("sound.mp3");
+      sound.play();
+    });
+
+
+    const cursor = document.querySelector(".cursor");
+    window.addEventListener("mousemove", (e) => {
+      cursor.style.top = e.pageY + "px"
+      cursor.style.left = e.pageX + "px"
+    });
+  </script>
+</body>
+
+</html>

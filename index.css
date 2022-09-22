@@ -1,0 +1,67 @@
+*{
+  margin:0;
+  padding:0;
+  cursor: none;
+
+
+}
+
+body{
+  background-image: url("wall3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+
+}
+
+.container{
+  border: 5px solid red;
+  position: relative;
+
+  height: 100%;
+
+}
+
+
+button{
+  color: white;
+  outline: none;
+  padding: 15px 45px;
+  border: 2px solid white;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+  background: transparent;
+  text-align: center;
+
+}
+
+
+.cursor{
+  position: absolute;
+  height: 70px;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  z-index: 2;
+  transition: 0.3s transform ease;
+  transform-origin:  100% 100%;
+
+
+}
+
+.ball{
+  height: 50px;
+}
+
+img::selection{
+  background: transparent;
+}
+
+.gunshot{
+  position: absolute;
+  height: 25px;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+
+}
